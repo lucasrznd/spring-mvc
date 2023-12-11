@@ -40,8 +40,35 @@
 
 <div th:each="p : ${pessoaObj}">
     <div class="row">
-        <p>ID: <span th:text="${p.id}"></span></p>
+        <div class="col s12">
+            <p>ID: <span th:text="${p.id}"></span></p>
+        </div>
     </div>
+</div>
+
+<div class="row">
+    <div class="col s12">
+        <h5>Telefones</h5>
+    </div>
+
+    <form th:action="@{/addfonePessoa/{idpessoa}(idpessoa=${pessoaObj.id})}" method="post" class="col s12">
+        <div class="row">
+            <div class="input-field col s6">
+                <label for="numero" class="active">Número</label>
+                <input id="numero" name="numero" class="validate">
+            </div>
+
+            <div class="input-field col s6">
+                <label for="tipo" class="active">Tipo</label>
+                <input id="tipo" name="tipo" class="validate">
+            </div>
+
+            <div class="col s6">
+                <input type="submit" value="Adicionar" class="waves-effect waves-light btn">
+            </div>
+
+        </div>
+    </form>
 </div>
 
 <script>

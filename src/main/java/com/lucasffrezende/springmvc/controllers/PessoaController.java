@@ -1,7 +1,9 @@
 package com.lucasffrezende.springmvc.controllers;
 
 import com.lucasffrezende.springmvc.models.Pessoa;
+import com.lucasffrezende.springmvc.models.Telefone;
 import com.lucasffrezende.springmvc.repositories.PessoaRepository;
+import com.lucasffrezende.springmvc.repositories.TelefoneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +16,9 @@ public class PessoaController {
 
     @Autowired
     private PessoaRepository pessoaRepository;
+
+    @Autowired
+    private TelefoneRepository telefoneRepository;
 
     @RequestMapping(method = RequestMethod.GET, value = "/cadastropessoa")
     public ModelAndView inicio() {
@@ -84,6 +89,19 @@ public class PessoaController {
 
         ModelAndView modelAndView = new ModelAndView("cadastro/telefones");
         modelAndView.addObject("pessoaObj", pessoa.get());
+        return modelAndView;
+    }
+
+    @PostMapping("/addfonePessoa/{pessoaid}")
+    public ModelAndView addFonePessoa(Telefone telefone, @PathVariable("pessoaid") Long idPessoa) {
+        Pessoa pessoa = pessoaRepository.findById(idPessoa).get();
+        telefone.setPessoa(pessoa);
+
+        telefoneRepository.save(telefone);
+
+        ModelAndView modelAndView = new ModelAndView("cadastro/telefones");
+        modelAndView.addObject("pessoaObj", new Pessoa());
+
         return modelAndView;
     }
 
