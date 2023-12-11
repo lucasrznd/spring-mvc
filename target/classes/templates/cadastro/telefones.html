@@ -86,6 +86,8 @@
             <td th:text="${fone.numero}"></td>
             <td th:text="${fone.tipo}"></td>
             <td th:text="${fone.pessoa.nome}"></td>
+            <td><a th:href="@{/removertelefone/{idtelefone}(idtelefone=${fone.id})}"
+                   class="waves-effect waves-light btn">Excluir</a></td>
         </tr>
     </table>
 </div>

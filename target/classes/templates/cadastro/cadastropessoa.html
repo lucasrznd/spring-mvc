@@ -32,8 +32,8 @@
     <form id="formPessoa" action="/salvarpessoa" method="post" th:object="${pessoaObj}" class="col s12">
         <div class="row">
             <div class="input-field col s6">
-                <label for="id">ID:</label>
-                <input id="id" name="id" th:readonly="true" th:field="*{id}">
+                <label for="id" class="active">ID:</label>
+                <input id="id" name="id" th:readonly="true" th:field="*{id}" class="validate">
             </div>
 
             <div class="input-field col s6">
