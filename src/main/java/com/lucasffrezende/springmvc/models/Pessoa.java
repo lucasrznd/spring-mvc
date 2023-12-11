@@ -1,6 +1,9 @@
 package com.lucasffrezende.springmvc.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import org.springframework.lang.NonNull;
 
 import java.io.Serializable;
 import java.util.List;
@@ -14,7 +17,13 @@ public class Pessoa implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull(message = "Nome não pode ser nulo")
+    @NotEmpty(message = "Nome não pode ser vazio")
     private String nome;
+
+    @NotNull(message = "Sobrenome não pode ser nulo")
+    @NotEmpty(message = "Sobrenome não pode ser vazio")
     private String sobrenome;
 
     @OneToMany(mappedBy = "pessoa", orphanRemoval = true, cascade = CascadeType.ALL)

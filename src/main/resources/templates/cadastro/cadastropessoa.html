@@ -28,6 +28,10 @@
     </div>
 </div>
 
+<div th:each="m : ${msg}">
+    <span th:text="${m}"></span>
+</div>
+
 <div class="row">
     <form id="formPessoa" action="/salvarpessoa" method="post" th:object="${pessoaObj}" class="col s12">
         <div class="row">
