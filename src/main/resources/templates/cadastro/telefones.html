@@ -71,6 +71,25 @@
     </form>
 </div>
 
+<div>
+    <table class="centered highlight">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Número</th>
+            <th>Tipo</th>
+            <th>Nome Pessoa</th>
+        </tr>
+        </thead>
+        <tr th:each="fone : ${fones}">
+            <td th:text="${fone.id}"></td>
+            <td th:text="${fone.numero}"></td>
+            <td th:text="${fone.tipo}"></td>
+            <td th:text="${fone.pessoa.nome}"></td>
+        </tr>
+    </table>
+</div>
+
 <script>
     <script type="text/javascript" src="/materialize/js/materialize.js"></script>
 <script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
