@@ -1,0 +1,53 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/materialize/css/materialize.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="/materialize/css/materialize.min.css" media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>CRUD - Cadastro Telefone</title>
+
+    <style type="text/css">
+        form input[type=submit] {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="row">
+    <div class="center-align">
+        <h3>CRUD - Cadastro Telefone</h3>
+    </div>
+</div>
+
+<div class="col s12 m7">
+    <div class="card horizontal">
+        <div class="card-stacked">
+            <div class="card-content">
+                <a class="waves-effect waves-light btn" href="/cadastropessoa">Cad. Pessoa</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:each="p : ${pessoaObj}">
+    <div class="row">
+        <p>ID: <span th:text="${p.id}"></span></p>
+    </div>
+</div>
+
+<script>
+    <script type="text/javascript" src="/materialize/js/materialize.js"></script>
+<script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
+</script>
+</body>
+
+</html>
